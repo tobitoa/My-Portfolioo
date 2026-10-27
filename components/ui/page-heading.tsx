@@ -1,0 +1,5 @@
+import { ArrowDownRight } from "lucide-react";
+
+export function PageHeading({ eyebrow, title, description }: Readonly<{ eyebrow: string; title: React.ReactNode; description: string }>) {
+  return <div className="page-heading grid min-w-0 gap-7 border-b border-white/[var(--border-alpha)] pb-10 sm:gap-8 sm:pb-12 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:items-end md:pb-16"><div className="min-w-0"><p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[rgb(var(--primary))]">{eyebrow}</p><h1 className="mt-5 max-w-2xl break-words font-display text-[clamp(2.65rem,11vw,4rem)] font-bold leading-[.98] tracking-[-.055em] text-[rgb(var(--foreground))] sm:text-6xl lg:text-7xl">{title}</h1></div><div className="flex min-w-0 items-end justify-between gap-6 md:pb-1"><p className="min-w-0 max-w-md text-[15px] leading-7 text-[rgb(var(--muted-foreground))]">{description}</p><ArrowDownRight className="hidden shrink-0 text-[rgb(var(--primary))] md:block" size={26} strokeWidth={1.2} /></div></div>;
+}
