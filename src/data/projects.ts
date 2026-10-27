@@ -30,7 +30,7 @@ export const projects: readonly Project[] = [
     image: conviaImage,
     imageAlt: "CONVIA intelligent continuity workspace preview",
     technologies: [],
-    liveUrl: "https://13.238.117.59/",
+    liveUrl: "https://convia-web.xyz/",
     githubUrl: "https://github.com/tobitoa/Convia.git",
     highlights: ["Conversational Workspace", "Mission Management", "Knowledge Organization", "Context Continuity"],
     details: "Capture intent → Preserve context → Organize outcomes → Review progress",
