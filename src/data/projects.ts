@@ -1,4 +1,5 @@
 import type { StaticImageData } from "next/image";
+import conviaImage from "@/src/data/convia.png";
 import homiesWearImage from "@/src/data/homies-wear.png";
 import resomeshImage from "@/src/data/resomesh.png";
 
@@ -13,12 +14,27 @@ export type Project = {
   technologies: readonly string[];
   liveUrl: string;
   githubUrl?: string;
+  highlights?: readonly string[];
   details?: string;
   features?: readonly string[];
   methodology?: string;
 };
 
 export const projects: readonly Project[] = [
+  {
+    slug: "convia",
+    title: "CONVIA",
+    category: "CONVIA",
+    subtitle: "Intelligent Continuity Workspace",
+    description: "CONVIA is an intelligent personal workspace designed to connect conversations, projects, commitments, documents, research, travel plans, and knowledge in one place. Instead of letting important context become scattered across different tools, CONVIA helps users capture intent, preserve information, organize outcomes into missions, and return to their work with greater continuity.",
+    image: conviaImage,
+    imageAlt: "CONVIA intelligent continuity workspace preview",
+    technologies: [],
+    liveUrl: "https://13.238.117.59/",
+    githubUrl: "https://github.com/tobitoa/Convia.git",
+    highlights: ["Conversational Workspace", "Mission Management", "Knowledge Organization", "Context Continuity"],
+    details: "Capture intent → Preserve context → Organize outcomes → Review progress",
+  },
   {
     slug: "resomesh",
     title: "RESOMESH",
@@ -43,13 +59,12 @@ export const projects: readonly Project[] = [
     title: "Homies Wear",
     category: "HOMIES WEAR",
     subtitle: "Community-Driven Clothing Exchange Platform",
-    description: "Homies Wear is a community-driven clothing swap platform that helps people give wearable clothes a second life. Users can list clothing they no longer use, discover available pieces nearby, and connect with others to coordinate potential swaps.",
+    description: "Homies Wear is a community-driven clothing swap platform that helps people give wearable clothes a second life. Users can list clothing they no longer use, discover available pieces nearby, and connect with others to coordinate potential swaps. The experience centres on reuse, local discovery, and community-led clothing exchange as an alternative to always buying new.",
     image: homiesWearImage,
     imageAlt: "Homies Wear clothing exchange platform preview",
     technologies: [],
     liveUrl: "https://homies-wear-rouge.vercel.app",
     githubUrl: "https://github.com/tobitoa/homies-wear.git",
-    details: "The experience centres on reuse, local discovery, and community-led clothing exchange as an alternative to always buying new.",
     features: [
       "Reuse: keep wearable garments in circulation",
       "Discover: explore clothing listings from people nearby",

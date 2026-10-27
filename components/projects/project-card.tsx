@@ -9,6 +9,7 @@ export function ProjectCard({ project }: Readonly<{ project: Project }>) {
   const [imageFailed, setImageFailed] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const detailsId = `${project.slug}-details`;
+  const hasDetails = Boolean(project.details || project.highlights?.length || project.features?.length || project.methodology);
 
   return (
     <article
@@ -52,13 +53,18 @@ export function ProjectCard({ project }: Readonly<{ project: Project }>) {
           </div>
         )}
 
-        {project.details && <>
+        {hasDetails && <>
           <button type="button" className="project-details-toggle mt-5 md:hidden" aria-expanded={detailsOpen} aria-controls={detailsId} onClick={() => setDetailsOpen((value) => !value)}>
             {detailsOpen ? "Hide details" : "View details"} <ArrowUpRight size={14} aria-hidden="true" />
           </button>
           <div id={detailsId} className="project-details-panel" aria-hidden={!detailsOpen}>
             <div className="project-details-inner">
-              <p className="text-sm leading-7 text-[rgb(var(--muted-foreground))]">{project.details}</p>
+              {project.details && <p className="text-sm leading-7 text-[rgb(var(--muted-foreground))]">{project.details}</p>}
+              {project.highlights && <p className="mt-4 max-w-xl font-mono text-[9px] uppercase leading-5 tracking-[.11em] text-[rgb(var(--faint-foreground))]" aria-label="Project capabilities">
+                {project.highlights.map((highlight, index, highlights) => <span key={highlight}>
+                  {highlight}{index < highlights.length - 1 && <span className="text-[rgb(var(--primary)/.7)]" aria-hidden="true"> · </span>}
+                </span>)}
+              </p>}
               {project.features && <ul className="mt-4 grid gap-2 text-xs leading-6 text-[rgb(var(--muted-foreground))] sm:grid-cols-2">
                 {project.features.map((feature) => <li key={feature} className="project-feature">{feature}</li>)}
               </ul>}
